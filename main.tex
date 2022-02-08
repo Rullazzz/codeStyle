@@ -1,0 +1,123 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[english,russian]{babel}
+\usepackage{color}
+\usepackage{listings}
+\usepackage{caption}
+\DeclareCaptionFont{white}{\color{white}}
+\captionsetup[lstlisting]{format=listing,labelfont=white,textfont=white}
+
+\title{Code Style}
+\author{ИА-031 Сысюк З. Н.}
+\date{Февраль 2022}
+
+\begin{document}
+\lstset{language=C, 
+numbers=left,
+basicstyle=\small\sffamily}
+
+\maketitle
+
+\section{Введение}
+В документе содержится описание моего кодстайла
+
+\section{Основная часть}
+\textbf{Используемые языки программирования}
+\begin{itemize}
+    \item C/C++
+\end{itemize}
+\textbf{Пробелы и отступы}
+
+\\Операторы и операнды разделяются пробелом:
+
+\begin{lstlisting}
+int x = ( a + b ) * c / d;
+\end{lstlisting}
+
+\\Так же пробелом отделяются и фигурные скобки:
+
+\begin{lstlisting}
+if (a == 5) { return; }
+\end{lstlisting}
+\textbf{Оформление циклов и операторов управления}
+
+При использовании циклов или операторов управления используются отступы и переходы на новую строку, если это нужно:
+
+\begin{lstlisting}
+while(1) { 
+    if(a == 2) {
+        return;
+    }
+    a++;
+}
+\end{lstlisting}
+\textbf{Разделение функций и блоков кода}
+
+Функции и разные по смыслу блоки кода разделяются пустой строкой:
+\begin{lstlisting}
+int addFirst(...) {
+....
+}
+
+int addLast(...) {
+...
+}
+\end{lstlisting}
+\textbf{Названия функций и переменных}
+
+Названия функций и переменных должны быть логичными, не однобуквенными (названия итераторов могут состоять из одной буквы:
+\begin{lstlisting}
+int c; // BAD
+int counter; // GOOD
+\end{lstlisting}
+
+Названия функций должны быть записаны в смешанном регистре и начинаться с нижнего:
+\begin{lstlisting}
+int addFirst(...) {
+....
+}
+
+int addLast(...) {
+...
+}
+\end{lstlisting}
+
+Именнованые константы должны быть записаны в верхнем регистре с нижним подчеркивание в качестве разделителя:
+\begin{lstlisting}
+const int MAX_SIZE = 1000;
+const int N = 10;
+\end{lstlisting}
+\textbf{Файлы исходных кодов}
+
+ Класс следует объявлять в заголовочном файле и определять (реализовывать) в файле исходного кода, имена файлов совпадают с именем класса:
+\begin{lstlisting}
+myClass.h myClass.cpp
+\end{lstlisting}
+
+Все определения должны находиться в файлах исходного кода:
+\begin{lstlisting}
+class MyClass
+{
+public:
+  int getValue () {return value_;}  // WRONG
+  ...
+
+private:
+  int value_;
+}
+\end{lstlisting}
+Заголовочные файлы объявляют интерфейс, файлы исходного кода его реализовывают.
+\\Не следует объявлять переменные класса как public. Вместо этого нужно использовать переменные с модификатором private и соответствующие
+функции доступа.
+
+\section{Вывод}
+В ходе работы я описал свой стиль написания кода в редакторе \textit{LATEX}.
+
+\section{Список литературы}
+
+\begin{enumerate}
+    \item https://tproger.ru/translations/stanford-cpp-style-guide/
+    \item https://habr.com/ru/post/172091/
+    \item https://habr.com/ru/company/ruvds/blog/574352/
+\end{enumerate}
+\end{document}
